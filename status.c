@@ -21,10 +21,9 @@ xioerror(Display *dpy)
 
 static int
 createstatus(struct statusbar *bar) {
-    int ret = True;
     bar->dpy = XOpenDisplay(0);
     if(!bar->dpy) {
-        ret = False;
+        return 0;
     }
 
     barhandler = bar->handler;
@@ -32,7 +31,7 @@ createstatus(struct statusbar *bar) {
 
     bar->w = DefaultRootWindow(bar->dpy);
 
-    return ret;
+    return 1;
 }
 
 static void
