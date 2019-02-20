@@ -76,7 +76,7 @@ void
 separator(struct statusbar *bar, void *data)
 {
     char *sep = (char *)data;
-    strncat(bar->str, sep, strlen(sep)-bar->len);
+    strncat(bar->str, sep, MAXSTR-bar->len-1);
     bar->str[MAXSTR-1] = '\0';
     bar->len = strlen(bar->str);
 }
